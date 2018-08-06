@@ -1,6 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+?>
 <!DOCTYPE HTML>
 <?php
+function ComprarProduto(){
+	$produto = mysqli_fetch_assoc($retorno);
+	$total = $total + $produto["preco"];
+}
 require '../Banco de Dados/conexao.php';
 
 $id = $_SESSION["logado"];
@@ -114,8 +119,8 @@ if (!empty($_GET)) {
 							if (!$retorno) {
 								header("location: logado.php");
 							} else {
-								$produto = mysqli_fetch_assoc($retorno);
-								$total = $total + $produto["preco"];
+								//$produto = mysqli_fetch_assoc($retorno);
+								//$total = $total + $produto["preco"];
 								//$insert = "INSERT INTO pedido (total) VALUES('$total')";
 								//$return = mysqli_query($cnx,$insert);
 
